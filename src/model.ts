@@ -553,9 +553,9 @@ export class ModelScene {
 
             // Yeeting objects
             Object.keys(objectInfo.perSwitch).forEach((switchTime, switchIndex) => {
-                const numSwitchTime = parseInt(switchTime);
+                const numSwitchTime = parseFloat(switchTime);
                 const firstInitializing = this.initializePositions && switchIndex === 0 && numSwitchTime !== 0;
-                const eventTime = firstInitializing ? 0 : parseInt(switchTime);
+                const eventTime = firstInitializing ? 0 : parseFloat(switchTime);
                 const amount = objectInfo.perSwitch[numSwitchTime];
 
                 if (group.disappearWhenAbsent || group.object) for (let i = amount; i < objectInfo.max; i++) {
@@ -601,7 +601,7 @@ export class ModelScene {
             }
         })
 
-        Object.keys(yeetEvents).forEach(x => { activeDiff.customEvents.push(yeetEvents[parseInt(x)]) });
+        Object.keys(yeetEvents).forEach(x => { activeDiff.customEvents.push(yeetEvents[parseFloat(x)]) });
     }
 }
 
